@@ -37,7 +37,7 @@ def processRequest(req):
     date_resoult = makedateQuery(req)
     print ("makedateQuery")
     subject_resoult = makesubjectQuery(req)
-     print ("makesubjectQuery")
+    print ("makesubjectQuery")
     return "booking"
 
 
