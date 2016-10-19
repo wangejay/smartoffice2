@@ -33,18 +33,22 @@ def processRequest(req):
     if req.get("result").get("action") != "bookmeetingroom":
         return {}
     #JW
-
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
+    print ("processRequest")
     date_resoult = makedateQuery(req)
+    print ("makedateQuery")
     subject_resoult = makesubjectQuery(req)
+     print ("makesubjectQuery")
     return "booking"
 
 
 
 def makedateQuery(req):
     result = req.get("result")
+    print ("debug 1" + result)
     parameters = result.get("parameters")
+    print ("debug 2" + parameters)
     date_query = parameters.get("date")
+    print ("debug 2" + date_query)
     if date_query is None:
         return None
     print ("date_query is" + date_query)
