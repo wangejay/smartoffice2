@@ -43,8 +43,10 @@ def processRequest(req):
 
 
 def makedateQuery(req):
+    print ("makedateQuery in")
     result = req.get("result")
     print ("debug 1" + result)
+    print ("debug 1")
     parameters = result.get("parameters")
     print ("debug 2" + parameters)
     date_query = parameters.get("date")
