@@ -33,6 +33,9 @@ def processRequest(req):
     if req.get("result").get("action") != "bookmeetingroom":
         return {}
     #JW
+    yql_query = makeYqlQuery(req)
+    print (yql_query)
+    
     print ("processRequest")
     date_resoult = makedateQuery(req)
     print ("makedateQuery")
