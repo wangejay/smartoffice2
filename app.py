@@ -33,17 +33,10 @@ def processRequest(req):
     if req.get("result").get("action") != "bookmeetingroom":
         return {}
     #JW
-    print "123456"
-    print "123456"
-    print "123456"
+
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
-        return {}
-    yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
-    result = urllib.urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data)
+    date_resoult = makedateQuery(req)
+    subject_resoult = makesubjectQuery(req)
     return "booking"
 
 
@@ -51,20 +44,20 @@ def processRequest(req):
 def makedateQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    if city is None:
+    date_query = parameters.get("date")
+    if date_query is None:
         return None
-
-    return "error1"
+    print ("date_query is" + date_query)
+    return date_query
 
 def makesubjectQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    date = parameters.get("date")
-    if date is None:
+    any_query = parameters.get("any")
+    if any_query is None:
         return None
-    print (date)
-    return "error2"
+    print ("any_query is" + any_query)
+    return any_query
 
 def makeYqlQuery(req):
     result = req.get("result")
