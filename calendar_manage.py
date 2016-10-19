@@ -12,16 +12,16 @@ from oauth2client.file import Storage
 
 import datetime
 
-#try:
-#    import argparse
-#    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-#except ImportError:
-#    flags = None
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/calendar-python-quickstart.json
 SCOPES = 'https://www.googleapis.com/auth/calendar'
-CLIENT_SECRET_FILE = '/Users/wangejay/Desktop/test.json'
+CLIENT_SECRET_FILE = 'test.json'
 APPLICATION_NAME = 'Google Calendar API Python Quickstart'
 
 
