@@ -66,13 +66,13 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     event = {
-        'summary': sys.argv[2],
+        'summary': booktest, #sys.argv[2],
         'location': 'Somewhere',
         'start': {
-        'date': sys.argv[1] 
+        'date': 2016-11-11#sys.argv[1] 
     },
     'end': {
-        'date': sys.argv[1] 
+        'date': 2016-11-11#sys.argv[1] 
     },
         'attendees': [
        {
