@@ -37,10 +37,11 @@ def processRequest(req):
     print (yql_query)
     
     print ("processRequest")
-    date_resoult = makedateQuery(req)
-    print ("makedateQuery")
+
     subject_resoult = makesubjectQuery(req)
-    print ("makesubjectQuery")
+    print (subject_resoult)
+    date_resoult = makedateQuery(req)
+    print (date_resoult)
     return "booking"
 
 
@@ -48,15 +49,10 @@ def processRequest(req):
 def makedateQuery(req):
     print ("makedateQuery in")
     result = req.get("result")
-    print ("debug 1" + result)
-    print ("debug 1")
     parameters = result.get("parameters")
-    print ("debug 2" + parameters)
     date_query = parameters.get("date")
-    print ("debug 2" + date_query)
     if date_query is None:
         return None
-    print ("date_query is" + date_query)
     return date_query
 
 def makesubjectQuery(req):
@@ -65,7 +61,6 @@ def makesubjectQuery(req):
     any_query = parameters.get("any")
     if any_query is None:
         return None
-    print ("any_query is" + any_query)
     return any_query
 
 def makeYqlQuery(req):
