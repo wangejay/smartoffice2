@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import sys
 
 from flask import Flask
 from flask import request
@@ -21,11 +22,7 @@ def webhook():
 
     res = processRequest(req)
 
-    res = json.dumps(res, indent=4)
-    # print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
+    return res
 
 
 def processRequest(req):
@@ -41,7 +38,11 @@ def processRequest(req):
     subject_resoult = makesubjectQuery(req)
     print (subject_resoult)
     date_resoult = makedateQuery(req)
-    print (date_resoult)
+    print (date_resoult[3:13])
+    date_string=date_resoult[3:13]
+    any_string=subject_resoult
+    p_comment= "python ./calendar_manage.py "+ date_string +" "+any_string
+    os.system(p_comment)
     return "booking"
 
 
