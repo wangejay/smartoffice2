@@ -12,11 +12,11 @@ from oauth2client.file import Storage
 
 import datetime
 
-#try:
-#    import argparse
-#    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-#except ImportError:
-#    flags = None
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/calendar-python-quickstart.json
@@ -38,7 +38,9 @@ def get_credentials():
     credential_dir = os.path.join(home_dir, '.credentials')
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
-    credential_path = '/app/.credentials/calendar-python-quickstart.json'
+    credential_path = os.path.join(credential_dir,
+                                   'calendar-python-quickstart.json')
+    #credential_path = '/app/.credentials/calendar-python-quickstart.json'
 
     store = Storage(credential_path)
     credentials = store.get()
@@ -65,13 +67,13 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     event = {
-        'summary': sys.argv[2],
+        'summary': 'Zenbot meeting'#sys.argv[2],
         'location': 'Somewhere',
         'start': {
-        'date': sys.argv[1] 
+        'date': '2016-11-11' #sys.argv[1] 
     },
     'end': {
-        'date': sys.argv[1] 
+        'date': '2016-11-11' #sys.argv[1] 
     },
         'attendees': [
        {
