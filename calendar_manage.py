@@ -12,11 +12,11 @@ from oauth2client.file import Storage
 
 import datetime
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
+#try:
+#    import argparse
+#    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+#except ImportError:
+#    flags = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/calendar-python-quickstart.json
@@ -66,13 +66,13 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     event = {
-        'summary': booktest, #sys.argv[2],
+        'summary': sys.argv[2],
         'location': 'Somewhere',
         'start': {
-        'date': 2016-11-11#sys.argv[1] 
+        'date': sys.argv[1] 
     },
     'end': {
-        'date': 2016-11-11#sys.argv[1] 
+        'date': sys.argv[1] 
     },
         'attendees': [
        {
