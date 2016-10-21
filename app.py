@@ -43,10 +43,9 @@ def processRequest(req):
     print (date_resoult)
     #date_string=date_resoult[3:13]
     any_string=subject_resoult
-    p_comment= "python calendar_manage.py "#+ "2016-10-20" +" "+"heroku"
+    p_comment= "python calendar_manage.py "+ date_resoult +" "+subject_resoult
     os.system(p_comment)
     return "booking"
-
 
 
 def makedateQuery(req):
