@@ -66,13 +66,13 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     event = {
-        'summary': 'Zenbot meeting',#sys.argv[2],
+        'summary': sys.argv[2],
         'location': 'Somewhere',
         'start': {
-        'date': '2016-11-11' #sys.argv[1] 
+        'date': sys.argv[1] 
     },
     'end': {
-        'date': '2016-11-11' #sys.argv[1] 
+        'date': sys.argv[1] 
     },
         'attendees': [
        {
