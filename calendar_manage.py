@@ -50,8 +50,7 @@ def get_credentials():
             credentials = tools.run(flow, store)
         print('Storing credentials to ' + credential_path)
         json_data1=open(credential_path).read()
-        data1 = json.loads(json_data1)
-        print(data1)
+        print(json_data1)
     return credentials
 
 def main():
